@@ -18,28 +18,10 @@ public class ProjectsService {
         this.projectsRepo = projectsRepo;
     }
 
-    public List<Projects> Getprojects() {
+    public List<Projects> getprojects() {
         return projectsRepo.findAll();
     }
 
-    public void  Deleteprojects(Integer id) {
-        projectsRepo.deleteById(id);
-    }
-    public Projects saveProject(Projects project) {
-        return projectsRepo.save(project);
-    }
 
-    public Projects updateProject(Integer id,Projects updateproject) {
-        return projectsRepo.findById(id)
-                .map(existingProject->{
-                    existingProject.setName(updateproject.getName());
-                    existingProject.setDescription(updateproject.getDescription());
-                    existingProject.setToolsLanguages(updateproject.getToolsLanguages());
-                    existingProject.setImageUrl(updateproject.getImageUrl());
-                    existingProject.setVideoUrl(updateproject.getVideoUrl());
-                    return projectsRepo.save(existingProject);
-                })
-                .orElseThrow(()-> new RuntimeException("the project with this id doesnt exist:" + id));
-    }
 
 }

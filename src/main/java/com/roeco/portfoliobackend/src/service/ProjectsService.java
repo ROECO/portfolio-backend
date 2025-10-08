@@ -18,10 +18,17 @@ public class ProjectsService {
         this.projectsRepo = projectsRepo;
     }
 
-    public List<Projects> getprojects() {
-        return projectsRepo.findAll();
+    public List<Projects> getprojects(Integer limit) {
+        List<Projects> projects = projectsRepo.findAll();
+
+        if (limit != null && limit > 0 && limit < projects.size()) {
+            return projects.subList(0, limit);
+        }
+
+        return projects;
     }
 
-
-
+//    public List<Projects> getProjectsByName(String name){
+//        return projectsRepo.findByName(name);
+//    }
 }

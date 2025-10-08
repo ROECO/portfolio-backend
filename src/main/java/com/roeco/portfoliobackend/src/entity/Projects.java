@@ -30,7 +30,7 @@ public class Projects {
     @ElementCollection
     @CollectionTable(name = "tools_languages", joinColumns = @JoinColumn(name = "project_id"))
     @Column(name = "tool_language", nullable = false)
-    @OrderColumn(name = "position") // <- add if order matters
+    @OrderColumn(name = "position")
     private List<String> toolsLanguages = new ArrayList<>();
 
     @Column(length = 255)

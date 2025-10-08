@@ -1,29 +1,105 @@
-INSERT INTO projects (id, name, description, image_url, video_url)
+INSERT INTO projects (name, description, image_url, video_url)
 VALUES
-    (1, 'Portfolio Backend', 'Spring Boot + PostgreSQL backend for my portfolio site.', 'https://picsum.photos/seed/backend/400/300', NULL),
-    (2, 'Portfolio Frontend', 'React + TypeScript frontend for the portfolio.', 'https://picsum.photos/seed/frontend/400/300', 'https://www.youtube.com/watch?v=dummy1'),
-    (3, 'IoT Dashboard', 'Monitor IoT devices and sensors in real time.', 'https://picsum.photos/seed/iot/400/300', 'https://www.youtube.com/watch?v=dummy2'),
-    (4, 'AI Chatbot', 'Simple chatbot using Python and NLP libraries.', 'https://picsum.photos/seed/chatbot/400/300', NULL),
-    (5, 'Game Prototype', 'Small 2D game demo built with Unity.', 'https://picsum.photos/seed/game/400/300', 'https://www.youtube.com/watch?v=dummy3');
+    ('Portfolio Backend', 'Spring Boot + PostgreSQL backend for my portfolio site.', 'https://picsum.photos/seed/backend/400/300', NULL),
+    ('Portfolio Frontend', 'React + TypeScript frontend for the portfolio.', 'https://picsum.photos/seed/frontend/400/300', 'https://www.youtube.com/watch?v=dummy1'),
+    ('IoT Dashboard', 'Monitor IoT devices and sensors in real time.', 'https://picsum.photos/seed/iot/400/300', 'https://www.youtube.com/watch?v=dummy2'),
+    ('AI Chatbot', 'Simple chatbot using Python and NLP libraries.', 'https://picsum.photos/seed/chatbot/400/300', NULL),
+    ('Game Prototype', 'Small 2D game demo built with Unity.', 'https://picsum.photos/seed/game/400/300', 'https://www.youtube.com/watch?v=dummy3');
 
+-- Now retrieve the auto-generated IDs and use them for tools_languages
 INSERT INTO tools_languages (project_id, tool_language, position)
+SELECT p.id, 'Java', 0 FROM projects p WHERE p.name = 'Portfolio Backend'
+UNION ALL
+SELECT p.id, 'Spring Boot', 1 FROM projects p WHERE p.name = 'Portfolio Backend'
+UNION ALL
+SELECT p.id, 'PostgreSQL', 2 FROM projects p WHERE p.name = 'Portfolio Backend'
+UNION ALL
+SELECT p.id, 'TypeScript', 0 FROM projects p WHERE p.name = 'Portfolio Frontend'
+UNION ALL
+SELECT p.id, 'React', 1 FROM projects p WHERE p.name = 'Portfolio Frontend'
+UNION ALL
+SELECT p.id, 'TailwindCSS', 2 FROM projects p WHERE p.name = 'Portfolio Frontend'
+UNION ALL
+SELECT p.id, 'JavaScript', 0 FROM projects p WHERE p.name = 'IoT Dashboard'
+UNION ALL
+SELECT p.id, 'Node.js', 1 FROM projects p WHERE p.name = 'IoT Dashboard'
+UNION ALL
+SELECT p.id, 'D3.js', 2 FROM projects p WHERE p.name = 'IoT Dashboard'
+UNION ALL
+SELECT p.id, 'Python', 0 FROM projects p WHERE p.name = 'AI Chatbot'
+UNION ALL
+SELECT p.id, 'TensorFlow', 1 FROM projects p WHERE p.name = 'AI Chatbot'
+UNION ALL
+SELECT p.id, 'NLTK', 2 FROM projects p WHERE p.name = 'AI Chatbot'
+UNION ALL
+SELECT p.id, 'C#', 0 FROM projects p WHERE p.name = 'Game Prototype'
+UNION ALL
+SELECT p.id, 'Unity', 1 FROM projects p WHERE p.name = 'Game Prototype'
+UNION ALL
+SELECT p.id, 'Blender', 2 FROM projects p WHERE p.name = 'Game Prototype';
+INSERT INTO about_sections (title, summary, full_description, image_url, slide_order, is_active, cta_text, cta_link, category, created_at, updated_at)
 VALUES
-    (1, 'Java', 0),
-    (1, 'Spring Boot', 1),
-    (1, 'PostgreSQL', 2),
+    (
+        'Who I Am',
+        'Full-stack developer passionate about building scalable web applications. I love turning complex problems into elegant solutions.',
+        'I''m a full-stack developer with 5 years of experience building modern web applications. My journey started with Java and Spring Boot, and I''ve expanded into frontend technologies like React and Svelte.
 
-    (2, 'TypeScript', 0),
-    (2, 'React', 1),
-    (2, 'TailwindCSS', 2),
+    I''m passionate about clean code, user experience, and continuous learning. When I''m not coding, you''ll find me contributing to open-source projects or mentoring junior developers.
 
-    (3, 'JavaScript', 0),
-    (3, 'Node.js', 1),
-    (3, 'D3.js', 2),
+    My approach combines technical excellence with a deep understanding of user needs, resulting in applications that are both powerful and intuitive.',
+        'https://picsum.photos/seed/coding/800/600',
+        1,
+        TRUE,
+        'Get to Know Me',
+        '/about',
+        'intro',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+    ),
+    (
+        'Professional Journey',
+        '5+ years building enterprise applications. Currently working with Java, Spring Boot, and modern frontend frameworks.',
+        'Senior Full-Stack Developer | TechCorp Inc. (2022-Present)
+    • Led development of microservices architecture serving 1M+ users
+    • Implemented CI/CD pipelines reducing deployment time by 60%
+    • Mentored 5 junior developers
 
-    (4, 'Python', 0),
-    (4, 'TensorFlow', 1),
-    (4, 'NLTK', 2),
+    Full-Stack Developer | StartupXYZ (2020-2022)
+    • Built e-commerce platform from ground up
+    • Integrated payment systems and third-party APIs
+    • Reduced page load times by 40% through optimization
 
-    (5, 'C#', 0),
-    (5, 'Unity', 1),
-    (5, 'Blender', 2);
+    Education:
+    • B.S. Computer Science - University Name (2018)
+    • AWS Certified Solutions Architect',
+        'https://picsum.photos/seed/workspace/800/600',
+        2,
+        TRUE,
+        'View Full Experience',
+        '/about',
+        'experience',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+    ),
+    (
+        'Latest Thoughts',
+        'Exploring the future of web development and sharing insights from my journey. Check out my latest blog post on microservices architecture.',
+        'Welcome to my blog where I share thoughts on software development, best practices, and lessons learned throughout my career.
+
+    Latest Post: Building Scalable Microservices with Spring Boot
+    In this post, I dive deep into designing microservices that can handle millions of requests while maintaining clean architecture and testability.
+
+    Topics I cover:
+    • Software Architecture
+    • Best Practices
+    • Career Growth in Tech
+    • Lessons from Real Projects',
+        'https://picsum.photos/seed/blog/800/600',
+        3,
+        TRUE,
+        'Read My Blog',
+        '/about',
+        'blog',
+        CURRENT_TIMESTAMP,
+        CURRENT_TIMESTAMP
+    );

@@ -47,3 +47,20 @@ CREATE TABLE IF NOT EXISTS tools_languages (
                                                position INTEGER DEFAULT 0,
                                                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+CREATE TABLE IF NOT EXISTS about_work_items (
+                                                about_sections_id BIGINT NOT NULL,
+                                                position          INTEGER NOT NULL,
+                                                title             VARCHAR(255) NOT NULL,
+                                                company           VARCHAR(255),
+                                                start_date        TIMESTAMP,
+                                                end_date          TIMESTAMP,
+                                                blurb             TEXT,
+                                                PRIMARY KEY (about_sections_id, position),
+                                                CONSTRAINT fk_about_work_items_about
+                                                    FOREIGN KEY (about_sections_id)
+                                                        REFERENCES about_sections(id) ON DELETE CASCADE
+);
+
+-- Optional but recommended for fast ordered loads
+CREATE INDEX IF NOT EXISTS idx_about_work_items_about_pos
+    ON about_work_items (about_sections_id, position);

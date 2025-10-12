@@ -7,7 +7,10 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "about_sections")
@@ -54,4 +57,21 @@ public class AboutSection {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    @ElementCollection
+    @CollectionTable(name = "about_work_items", joinColumns = @JoinColumn(name = "about_sections_id"))
+    @OrderColumn(name = "position")
+    private List<WorkItem> item =new ArrayList<>();
+
+
+    @Embeddable
+    @Data
+    public static class WorkItem{
+        private String title;
+        private String company;
+        private LocalDate startDate, endDate;
+        @Column(columnDefinition = "TEXT")
+        private String blurb;
+    }
+
 }

@@ -103,3 +103,23 @@ VALUES
         CURRENT_TIMESTAMP,
         CURRENT_TIMESTAMP
     );
+-- 4 work items linked to the 2nd AboutSection ("Professional Journey")
+INSERT INTO about_work_items (about_sections_id, position, title, company, start_date, end_date, blurb)
+SELECT a.id, 0, 'Associate Software Engineer', 'Lowe''s', DATE '2023-08-01', NULL,
+       'SCO-UI team. Java + Spring Boot backend integrations; React/TS frontend; CI/CD. Owned internal Employee Relief Fund rebuild.'
+FROM about_sections a WHERE a.title = 'Professional Journey';
+
+INSERT INTO about_work_items (about_sections_id, position, title, company, start_date, end_date, blurb)
+SELECT a.id, 1, 'Full-Stack Developer (Contract)', 'Freelance', DATE '2022-03-01', DATE '2023-07-31',
+       'Built small-business web apps: Spring Boot APIs, Postgres, React; Docker deployments; payments and auth.'
+FROM about_sections a WHERE a.title = 'Professional Journey';
+
+INSERT INTO about_work_items (about_sections_id, position, title, company, start_date, end_date, blurb)
+SELECT a.id, 2, 'Combat Medic (68W)', 'U.S. Army', DATE '2018-06-01', DATE '2021-12-31',
+       'Scout platoon medic; ODA deployment; high-pressure triage, logistics, and training.'
+FROM about_sections a WHERE a.title = 'Professional Journey';
+
+INSERT INTO about_work_items (about_sections_id, position, title, company, start_date, end_date, blurb)
+SELECT a.id, 3, 'Student, Computer Engineering (A.S.)', 'Forsyth Tech', DATE '2025-08-20', NULL,
+       'Embedded track: C, assembly, microcontrollers. Projects: IoT dashboard, home-lab automation.'
+FROM about_sections a WHERE a.title = 'Professional Journey';

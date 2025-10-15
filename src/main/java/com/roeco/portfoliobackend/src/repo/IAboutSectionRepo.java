@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface IAboutSectionRepo extends JpaRepository<AboutSection, Long> {
     List<AboutSection> findByIsActiveTrueOrderByOrderAsc();
+    AboutSection getAboutSectionById(Long id);
 }

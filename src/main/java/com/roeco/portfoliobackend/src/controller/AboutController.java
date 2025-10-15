@@ -23,4 +23,8 @@ public class AboutController implements IAboutApi {
     public ResponseEntity<List<AboutSection>> getAboutSections() {
         return ResponseEntity.ok(aboutSectionService.getAboutSections());
     }
+    @Override
+    public ResponseEntity<AboutSection> getAboutSectionById(Long id){
+        return ResponseEntity.ok(aboutSectionService.getAboutSectionById(id));
+    }
 }

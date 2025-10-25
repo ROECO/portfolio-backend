@@ -32,8 +32,8 @@ public class WorkExp {
     @Column(columnDefinition = "TEXT", nullable = false )
     private String blurb;
 
-    @Column(nullable = false)
-    private int order;
+    @Column(nullable = false, name = "order_index")
+    private int orderIndex;
 
 
 

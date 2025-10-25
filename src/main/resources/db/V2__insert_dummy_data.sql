@@ -123,3 +123,27 @@ INSERT INTO about_work_items (about_sections_id, position, title, company, start
 SELECT a.id, 3, 'Student, Computer Engineering (A.S.)', 'Forsyth Tech', DATE '2025-08-20', NULL,
        'Embedded track: C, assembly, microcontrollers. Projects: IoT dashboard, home-lab automation.'
 FROM about_sections a WHERE a.title = 'Professional Journey';
+INSERT INTO work_exp (
+    company,
+    title,
+    start_date,
+    end_date,
+    blurb,
+    order_index
+) VALUES
+      (
+          'Lowe''s',
+          'Associate Software Engineer',
+          '2023-08-01',
+          NULL,
+          'Full-stack / backend-focused engineer on self-checkout systems used in 1,700+ stores. Built and maintained Spring Boot microservices and REST APIs for transaction, loyalty, and cash-handling workflows. Integrated Kubernetes deployments via Rancher and automated CI/CD with Jenkins. Wrote Python monitoring tools to track system metrics and checkout performance. Worked with React frontend to ensure API alignment and stable customer experience.',
+          0
+      ),
+      (
+          'U.S. Army',
+          'CPL E-4 Senior-Line Medic',
+          '2017-07-01',
+          '2021-07-01',
+          'Provided emergency care under fire and was credited with saving multiple lives. Maintained medical readiness (MEDPROS) and deployment readiness for 40+ personnel. Recognized with ARCOM, 3× AAM, NATO Medal, and Best Medic Award. Held responsibility, discipline, and leadership in high-pressure environments.',
+          1
+      );

@@ -36,6 +36,16 @@ CREATE TABLE IF NOT EXISTS projects (
                                         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                                         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+CREATE TABLE IF NOT EXISTS work_exp (
+                                        id SERIAL PRIMARY KEY,
+                                        company VARCHAR(255) NOT NULL,
+                                        title VARCHAR(255) NOT NULL,
+                                        start_date DATE NOT NULL,
+                                        end_date DATE,
+                                        blurb TEXT NOT NULL,
+                                        order_index INT NOT NULL
+);
+
 
 CREATE TRIGGER update_projects_updated_at BEFORE UPDATE ON projects
     FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();

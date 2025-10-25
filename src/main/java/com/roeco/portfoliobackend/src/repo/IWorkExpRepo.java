@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface IWorkExpRepo extends JpaRepository<WorkExp,Integer> {
-    List<WorkExp> findAllByOrderByOrderAsc();
+    List<WorkExp> findAllByOrderByOrderIndexAsc();
     WorkExp getWorkExpById(Integer id);
 }

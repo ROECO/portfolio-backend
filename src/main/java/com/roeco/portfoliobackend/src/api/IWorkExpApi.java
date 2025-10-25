@@ -1,6 +1,7 @@
 package com.roeco.portfoliobackend.src.api;
 
 import com.roeco.portfoliobackend.src.constants.ErrorMessages;
+import com.roeco.portfoliobackend.src.constants.RoecoConstants;
 import com.roeco.portfoliobackend.src.constants.SuccessMessages;
 import com.roeco.portfoliobackend.src.entity.WorkExp;
 import io.swagger.v3.oas.annotations.Operation;
@@ -17,7 +18,7 @@ public interface IWorkExpApi {
             @ApiResponse(responseCode = "200", description = SuccessMessages.WORKEXP_LISTED),
             @ApiResponse(responseCode = "404", description = ErrorMessages.WORKEXP_NOT_FOUND)
     })
-    @GetMapping("/api/v1/workexp")
-    ResponseEntity<List<WorkExp>> findAllByOrderIndex();
+    @GetMapping(RoecoConstants.WorkExperience.BASE)
+    ResponseEntity<List<WorkExp>> findAllByOrderIndexAsc();
 
 }

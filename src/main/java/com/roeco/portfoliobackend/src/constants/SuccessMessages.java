@@ -9,4 +9,6 @@ public class SuccessMessages {
     public static final String ABOUT_UPDATED = " About successfully updated.";
     public static final String ABOUT_DELETED = "About successfully deleted.";
     public static final String ABOUT_LISTED = "About listed successfully.";
+    public static final String WORKEXP_LISTED= "Work Experience listed successfully.";
+
 }

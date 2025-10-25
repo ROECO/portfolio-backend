@@ -5,4 +5,5 @@ public class ErrorMessages {
     public static final String ABOUT_NOT_FOUND = "About not found with ID: ";
     public static final String DOES_NOT_EXIST = "Does not exist.";
     public static final String UNAUTHORIZED_ACCESS = "You do not have permission to perform this action.";
+    public static final String WORKEXP_NOT_FOUND = "Work Experience not found with ID: ";
 }
